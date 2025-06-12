@@ -1,0 +1,28 @@
+.score-change {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.score-change.positive {
+    color: #38a169;
+}
+
+.score-change.negative {
+    color: #e53e3e;
+}
+
+.explanation-item {
+    background: #f7fafc;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border-left: 4px solid #667eea;
+}
+
+.explanation-item strong {
+    color: #4a5568;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+

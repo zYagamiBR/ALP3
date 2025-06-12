@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALP3 - Progressive Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="explanation_styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🎓 ALP3 - Progressive Learning</h1>
+            <p class="subtitle">Learn through progressive questions that teach concepts step by step</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Start Screen -->
+            <div id="start-screen" class="screen active">
+                <div class="start-container">
+                    <h2>🚀 Start Your Progressive Learning Journey</h2>
+                    <p class="description">
+                        ALP3 creates a personalized study plan where each question teaches you concepts progressively. 
+                        Learn through guided discovery rather than memorization!
+                    </p>
+                    
+                    <div class="input-section">
+                        <div class="input-group">
+                            <label for="topic-input">📚 Enter a topic to learn:</label>
+                            <input type="text" id="topic-input" placeholder="e.g., JavaScript basics, Biology, History..." />
+                            <button id="start-topic-btn" class="btn btn-primary">
+                                🎯 Create Learning Plan
+                            </button>
+                        </div>
+                        
+                        <div class="divider">
+                            <span>OR</span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="file-input">📄 Upload a document to learn from:</label>
+                            <input type="file" id="file-input" accept=".pdf,.txt" />
+                            <button id="start-file-btn" class="btn btn-secondary" disabled>
+                                📖 Learn from Document
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="features">
+                        <h3>✨ What makes ALP3 special:</h3>
+                        <ul>
+                            <li>🎯 <strong>Progressive Teaching:</strong> Questions build on each other</li>
+                            <li>🧠 <strong>Smart Mastery:</strong> Extra practice for concepts you miss</li>
+                            <li>💡 <strong>Comprehensive Explanations:</strong> Learn from every answer</li>
+                            <li>📈 <strong>Adaptive Difficulty:</strong> Grows with your understanding</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Screen -->
+            <div id="loading-screen" class="screen">
+                <div class="loading-container">
+                    <div class="loading-spinner"></div>
+                    <h2>🧠 Creating Your Progressive Learning Plan...</h2>
+                    <p id="loading-message">Analyzing your topic and designing the optimal learning sequence...</p>
+                    <div class="loading-steps">
+                        <div class="step active">📋 Analyzing topic</div>
+                        <div class="step">🎯 Creating concept progression</div>
+                        <div class="step">❓ Generating first teaching question</div>
+                        <div class="step">🚀 Ready to learn!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div id="quiz-screen" class="screen">
+                <!-- Progress Header -->
+                <div class="progress-header">
+                    <div class="progress-info">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="progress-bar"></div>
+                            <span class="progress-text" id="progress-text">Question 1 of 10</span>
+                        </div>
+                        <div class="score-display">
+                            <span class="score" id="current-score">Score: 100</span>
+                            <span class="concept-progress" id="concept-progress">Concepts Learned: 0</span>
+                        </div>
+                    </div>
+                    <div class="question-type-indicator" id="question-type">
+                        <span class="teaching-indicator">🎓 Teaching Question</span>
+                    </div>
+                </div>
+
+                <!-- Question Container -->
+                <div class="question-container">
+                    <div class="question-header">
+                        <h2 id="question-text">Question will appear here</h2>
+                        <div class="question-meta">
+                            <span class="difficulty" id="question-difficulty">Easy</span>
+                            <span class="concept" id="question-concept">Concept: Loading...</span>
+                        </div>
+                    </div>
+
+                    <div class="options-container" id="options-container">
+                        <!-- Options will be dynamically generated -->
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="submit-btn" class="btn btn-primary" disabled>
+                            Submit Answer
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Container -->
+                <div id="results-container" class="results-container hidden">
+                    <div class="result-header">
+                        <div class="result-status" id="result-status">
+                            <!-- Correct/Incorrect indicator -->
+                        </div>
+                        <div class="score-change" id="score-change">
+                            <!-- Score change indicator -->
+                        </div>
+                    </div>
+
+                    <div class="explanation-section">
+                        <h3>💡 Explanation</h3>
+                        <div class="explanation-content" id="explanation-content">
+                            <!-- Detailed explanation will appear here -->
+                        </div>
+                    </div>
+
+                    <div class="learning-progress" id="learning-progress">
+                        <!-- Progress updates and mastery information -->
+                    </div>
+
+                    <div class="next-action">
+                        <button id="next-btn" class="btn btn-primary">
+                            Continue Learning →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Session Complete -->
+                <div id="session-complete" class="session-complete hidden">
+                    <div class="completion-header">
+                        <h2>🎉 Learning Session Complete!</h2>
+                        <div class="final-score" id="final-score">Final Score: 100</div>
+                    </div>
+
+                    <div class="completion-stats">
+                        <div class="stat">
+                            <span class="stat-number" id="total-questions">0</span>
+                            <span class="stat-label">Questions Answered</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="concepts-mastered">0</span>
+                            <span class="stat-label">Concepts Mastered</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="accuracy-rate">0%</span>
+                            <span class="stat-label">Accuracy Rate</span>
+                        </div>
+                    </div>
+
+                    <div class="completion-actions">
+                        <button id="restart-btn" class="btn btn-primary">
+                            🔄 Start New Learning Session
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>ALP3 - Progressive Learning Platform | Learn through guided discovery</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

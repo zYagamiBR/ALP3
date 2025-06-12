@@ -1,0 +1,6 @@
+﻿# keep secrets & junk out of Git
+.env*
+.history/
+.venv/
+__pycache__/
+*.pyc
